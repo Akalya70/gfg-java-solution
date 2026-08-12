@@ -1,0 +1,25 @@
+class Solution {
+    static String longestPalindrome(String s) {
+        String ans = "";
+
+        for (int i = 0; i < s.length(); i++) {
+            String sub1 = expand(s, i, i);
+            String sub2 = expand(s, i, i + 1);
+            if (sub1.length() > ans.length()) {
+                ans = sub1;
+            }
+            if (sub2.length() > ans.length()) {
+                ans = sub2;
+            }
+        }
+ return ans;
+    }
+    static String expand(String s, int left, int right) {
+while (left >= 0 && right < s.length()&& s.charAt(left) == s.charAt(right)) {
+ left--;
+            right++;
+        }
+
+        return s.substring(left + 1, right);
+    }
+}
