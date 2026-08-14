@@ -1,0 +1,14 @@
+import java.util.*;
+class Solution {
+    int missingNum(int arr[]) {
+    long n=arr.length+1;
+    HashSet<Integer>set=new HashSet<>();
+    for(int num:arr){
+        set.add(num);
+    }
+    for(int i=1;i<=n;i++){
+        if(!set.contains(i)){
+            return i;
+        }
+    }return -1;
+}}
