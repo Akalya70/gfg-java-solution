@@ -1,0 +1,11 @@
+class Solution {
+    int firstOccurence(String txt, String pat) {
+        // code here
+        if(txt.contains(pat)){
+            int a=txt.indexOf(pat);
+            return a;
+        }else{
+            return -1;
+        }
+    }
+}
