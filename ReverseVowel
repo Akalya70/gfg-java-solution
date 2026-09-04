@@ -1,0 +1,28 @@
+class Solution {
+    public String modify(String s) {
+        String a[]=s.split("");
+                int start=0;
+                int end=a.length-1;
+                while(start<end)
+                {
+                    if("aeiouAEIOU".indexOf(a[start])>=0 && "aeiouAEIOU".indexOf(a[end])>=0)
+                    {
+                        String temp=a[start];
+                        a[start]=a[end];
+                        a[end]=temp;
+                        start++;
+                        end--;
+                    }
+                    if("aeiouAEIOU".indexOf(a[start])<0)
+                    {
+                        start++;
+                    }
+                    if("aeiouAEIOU".indexOf(a[end])<0)
+
+                      {end--;
+                    }
+                }
+            return String.join("", a);
+
+            }
+    }
