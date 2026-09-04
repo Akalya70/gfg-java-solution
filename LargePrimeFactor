@@ -1,0 +1,13 @@
+class Solution {
+    static int largestPrimeFactor(int n) {
+        int num = 2;
+
+        while ((num * num) <= n) {
+            if (n % num == 0) 
+                n /= num;     
+            else
+                num++; 
+        }
+        return n;
+    }
+}
