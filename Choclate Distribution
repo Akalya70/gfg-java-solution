@@ -1,4 +1,5 @@
-class Solution {
+class Solution 
+{
     public int findMinDiff(int arr[], int m) {
         int n=arr.length;
             Arrays.sort(arr);
