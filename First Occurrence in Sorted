@@ -1,5 +1,6 @@
 class Solution {
-    public int firstSearch(int[] arr, int k) {
+    public int firstSearch(int[] arr, int k) 
+{
         int left=0;
         int right=arr.length-1;
         int result=-1;
