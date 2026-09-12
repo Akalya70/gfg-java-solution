@@ -1,5 +1,6 @@
 import java.util.*;class Solution {
-    int majorityElement(int arr[]) {
+    int majorityElement(int arr[])
+{
         int n=arr.length;
       HashMap<Integer,Integer> map=new HashMap<>();
       
