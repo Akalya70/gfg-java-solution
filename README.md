@@ -1,7 +1,6 @@
 GeeksforGeeks Practice
 
 
-
 This repository contains my solutions and practice programs from GeeksforGeeks (GFG).
 
 
