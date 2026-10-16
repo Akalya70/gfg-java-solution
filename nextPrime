@@ -1,0 +1,17 @@
+class Solution {
+    public static int nextPrime(int n) {
+        int d=n+1;
+             while (true) {
+                 int b=0;
+                 for(int i=1;i<=d;i++) {
+                     if(d%i==0) {
+                         b++;
+                     }
+                 }
+                 if(b==2) {
+                     return d;
+                 }
+                 d++;
+             }
+    }
+}
