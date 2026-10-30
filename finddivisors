@@ -1,0 +1,23 @@
+
+class Solution {
+    public static long finddivisors(long n){
+         int count=0;
+         for(int i=1;i*i<=n;i++){
+             if(n%i==0){
+                 count+=i;
+                 if(i!=n/i){
+                     count+=n/i;
+                 }
+             }
+         }
+         return count;
+    }
+    public static long sumOfDivisors(long n) {
+        long result=0;
+        for(int i=1;i<=n;i++){
+            result+=finddivisors(i);
+        }
+        return result;
+    }
+
+}
