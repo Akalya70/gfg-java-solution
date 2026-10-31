@@ -1,0 +1,6 @@
+class Solution {
+    public int termOfGP(int A, int B, int N) {
+        double result = A * Math.pow((double) B / A, N - 1);
+        return (int) Math.round(result);
+    }
+}
