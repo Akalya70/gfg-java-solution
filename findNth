@@ -1,0 +1,14 @@
+class Solution {
+    public long findNth(long n) {
+        long result = 0;
+        long multiplier = 1;
+        
+        while (n > 0) {
+            result += (n % 9) * multiplier;
+            n /= 9;
+            multiplier *= 10;
+        }
+        
+        return result;
+    }
+}
