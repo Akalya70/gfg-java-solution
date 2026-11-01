@@ -1,0 +1,26 @@
+class Solution {
+    public int maximumSubarray(int[] arr) {
+        if (arr == null || arr.length == 0) return 0;
+
+        long noSquare = arr[0];
+        long hasSquared = (long) arr[0] * arr[0];
+        long maxSum = Math.max(noSquare, hasSquared);
+
+        for (int i = 1; i < arr.length; i++) {
+            long currentVal = arr[i];
+            long squaredVal = currentVal * currentVal;
+            long nextNoSquare = Math.max(currentVal, noSquare + currentVal);
+            long nextHasSquared = Math.max(
+                Math.max(noSquare + squaredVal, hasSquared + currentVal),
+                squaredVal
+            );
+
+            noSquare = nextNoSquare;
+            hasSquared = nextHasSquared;
+
+            maxSum = Math.max(maxSum, Math.max(noSquare, hasSquared));
+        }
+
+        return (int) maxSum;
+    }
+}
