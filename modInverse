@@ -1,0 +1,17 @@
+class Solution {
+    public int modInverse(int n, int m) {
+        int ans = 0;
+              for(int i = 1; i<=m; i++){
+
+                  if((i*n)%m==1){
+                      ans =i;
+                      break;
+                  }
+                  else{
+                      ans=-1;
+                  }
+              }
+              return ans;
+        
+    }
+}
