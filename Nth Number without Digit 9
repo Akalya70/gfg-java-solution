@@ -1,0 +1,17 @@
+import java.math.BigInteger;
+
+class Solution {
+    public String findNth(String n) {
+        BigInteger num = new BigInteger(n);
+        StringBuilder result = new StringBuilder();
+        BigInteger nine = BigInteger.valueOf(9);
+        
+        while (num.compareTo(BigInteger.ZERO) > 0) {
+            BigInteger rem = num.mod(nine);
+            result.append(rem);
+            num = num.divide(nine);
+        }
+        
+        return result.reverse().toString();
+    }
+}
