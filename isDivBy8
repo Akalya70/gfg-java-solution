@@ -1,0 +1,15 @@
+class Solution {
+    public boolean isDivBy8(String s) {
+        String str;
+        if (s.length() >= 3) {
+            str = s.substring(s.length() - 3);
+        } else {
+            str = s;
+        }
+        int n = Integer.parseInt(str);
+        if (n % 8 == 0) {
+            return true;
+        }
+        return false;
+    }
+}
