@@ -1,0 +1,19 @@
+class Solution {
+    public int countBT(int h) {
+        if (h <= 1) return 1;
+        
+        long MOD = 1000000007;
+        long[] dp = new long[h + 1];
+        
+        dp[0] = 1;
+        dp[1] = 1;
+        
+        for (int i = 2; i <= h; i++) {
+            long term1 = dp[i - 1] * dp[i - 1];
+            long term2 = 2 * dp[i - 1] * dp[i - 2];
+            dp[i] = (term1 + term2) % MOD;
+        }
+        
+        return (int) dp[h];
+    }
+}
