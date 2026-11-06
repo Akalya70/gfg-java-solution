@@ -1,0 +1,23 @@
+class Solution {
+    public int minimumInteger(int[] arr) {
+        int n = arr.length;
+        long sum = 0;
+        
+        // Step 1: Calculate the total sum of the array
+        for (int num : arr) {
+            sum += num;
+        }
+        
+        long minVal = Long.MAX_VALUE;
+        
+        // Step 2: Iterate and find the minimum integer X satisfying the condition
+        for (int num : arr) {
+            // Using long to prevent integer overflow during multiplication
+            if (sum <= (long) n * num) {
+                minVal = Math.min(minVal, num);
+            }
+        }
+        
+        return (int) minVal;
+    }
+}
