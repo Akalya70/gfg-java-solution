@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+
+class Solution {
+    public ArrayList<Integer> getDistinctDifference(int[] arr) {
+        int n = arr.length;
+        int[] leftDistinct = new int[n];
+        int[] rightDistinct = new int[n];
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < n; i++) {
+            leftDistinct[i] = set.size();
+            set.add(arr[i]);
+        }
+        set.clear();
+        for (int i = n - 1; i >= 0; i--) {
+            rightDistinct[i] = set.size();
+            set.add(arr[i]);
+        }
+        ArrayList<Integer> result = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            result.add(leftDistinct[i] - rightDistinct[i]);
+        }
+
+        return result;
+    }
+}
