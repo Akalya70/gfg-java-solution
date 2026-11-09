@@ -1,0 +1,19 @@
+import java.util.*;
+
+class Solution {
+    public List<String> powerSet(String s) {
+        List<String> result = new ArrayList<>();
+        generateSubsequences(0, s, "", result);
+        Collections.sort(result);
+        return result;
+    }
+
+    private void generateSubsequences(int index, String s, String current, List<String> result) {
+        if (index == s.length()) {
+            result.add(current);
+            return;
+        }
+        generateSubsequences(index + 1, s, current + s.charAt(index), result);
+        generateSubsequences(index + 1, s, current, result);
+    }
+}
