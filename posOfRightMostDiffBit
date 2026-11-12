@@ -1,0 +1,11 @@
+class Solution {
+    public static int posOfRightMostDiffBit(int m, int n) {
+        if (m == n) {
+            return -1;
+        }
+
+        int xorValue = m ^ n;
+        int rightmostBit = xorValue & -xorValue;
+        return Integer.numberOfTrailingZeros(rightmostBit) + 1;
+    }
+}
