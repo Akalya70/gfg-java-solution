@@ -1,0 +1,23 @@
+class Solution {
+    public static int minDiff(Node root, int k) {
+        int minDiff = Integer.MAX_VALUE;
+        Node curr = root;
+
+        while (curr != null) {
+            int currentDiff = Math.abs(curr.data - k);
+            minDiff = Math.min(minDiff, currentDiff);
+
+            if (curr.data == k) {
+                return 0;
+            } 
+            else if (k < curr.data) {
+                curr = curr.left;
+            } 
+            else {
+                curr = curr.right;
+            }
+        }
+
+        return minDiff;
+    }
+}
