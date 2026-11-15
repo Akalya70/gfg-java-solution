@@ -1,0 +1,19 @@
+class Solution {
+    public int subsequenceSum(String s) {
+        long MOD = 1000000007;
+        long totalSum = 0;
+        int n = s.length();
+
+        for (int i = 0; i < n; i++) {
+            totalSum = (totalSum + (s.charAt(i) - '0')) % MOD;
+        }
+
+        long powerOfTwo = 1;
+        for (int i = 0; i < n - 1; i++) {
+            powerOfTwo = (powerOfTwo * 2) % MOD;
+        }
+        long result = (totalSum * powerOfTwo) % MOD;
+
+        return (int) result;
+    }
+}
