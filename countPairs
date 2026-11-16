@@ -1,0 +1,20 @@
+import java.util.HashMap;
+
+class Solution {
+    public int countPairs(int[] arr) {
+        HashMap<Integer, Integer> freqMap = new HashMap<>();
+        int totalPairs = 0;
+
+        for (int num : arr) {
+            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+        }
+
+        for (int freq : freqMap.values()) {
+            if (freq > 1) {
+                totalPairs += (freq * (freq - 1)) / 2;
+            }
+        }
+
+        return totalPairs;
+    }
+}
