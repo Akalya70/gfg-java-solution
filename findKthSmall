@@ -1,0 +1,50 @@
+import java.util.Arrays;
+
+class Solution {
+    public int findKthSmall(int[] arr, int k) {
+        Arrays.sort(arr);
+
+        // If the k-th missing number is smaller than the first element
+        if (k < arr[0]) {
+            return k;
+        }
+
+        // Binary search for the answer range
+        int low = 1, high = arr[arr.length - 1] + k;
+        int ans = high;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            // Count how many elements from arr are <= mid
+            int count = countLessThanOrEqual(arr, mid);
+
+            // Number of missing natural numbers <= mid
+            int missing = mid - count;
+
+            if (missing >= k) {
+                ans = mid;
+                high = mid - 1; // Try to find a smaller valid number
+            } else {
+                low = mid + 1;
+            }
+        }
+
+        return ans;
+    }
+
+    private int countLessThanOrEqual(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+        int count = 0;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] <= target) {
+                count = mid + 1;
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+        return count;
+    }
+}
