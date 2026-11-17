@@ -1,0 +1,29 @@
+class Solution {
+    public boolean findPattern(String s) {
+        int n = s.length();
+        int i = 0;
+        
+        while (i < n) {
+            int countX = 0;
+            // Count consecutive 'x's
+            while (i < n && s.charAt(i) == 'x') {
+                countX++;
+                i++;
+            }
+            
+            int countY = 0;
+            // Count consecutive 'y's
+            while (i < n && s.charAt(i) == 'y') {
+                countY++;
+                i++;
+            }
+            
+            // If there are no 'x's, no 'y's, or counts don't match, pattern is invalid
+            if (countX == 0 || countX != countY) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
