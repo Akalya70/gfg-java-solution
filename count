@@ -1,0 +1,7 @@
+class Solution {
+    static long count(int n) {
+        long totalEdges = (long) n * (n - 1) / 2;
+
+        return 1L << totalEdges;
+    }
+}
