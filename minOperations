@@ -1,0 +1,16 @@
+class Solution {
+    public int minOperations(int a, int b) {
+        if (a == b) {
+            return 0;
+        }
+        int common = a & b;
+        int ops = 0;
+        if (a != common) {
+            ops++;
+        }
+        if (b != common) {
+            ops++;
+        }
+        return ops;
+    }
+}
