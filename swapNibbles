@@ -1,0 +1,7 @@
+class Solution {
+    static int swapNibbles(int n) {
+        int lowerToUpper = (n & 0x0F) << 4;
+        int upperToLower = (n & 0xF0) >> 4;
+        return lowerToUpper | upperToLower;
+    }
+}
