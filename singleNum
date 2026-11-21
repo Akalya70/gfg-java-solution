@@ -1,0 +1,26 @@
+class Solution {
+    public int[] singleNum(int[] arr) {
+        int xorAll = 0;
+        for (int num : arr) {
+            xorAll ^= num;
+        }
+
+        // Isolate the rightmost set bit where the two unique numbers differ
+        int diffBit = xorAll & -xorAll;
+
+        int num1 = 0;
+        int num2 = 0;
+        for (int num : arr) {
+            if ((num & diffBit) == 0) {
+                num1 ^= num;
+            } else {
+                num2 ^= num;
+            }
+        }
+
+        if (num1 < num2) {
+            return new int[]{num1, num2};
+        }
+        return new int[]{num2, num1};
+    }
+}
