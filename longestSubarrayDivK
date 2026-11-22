@@ -1,0 +1,24 @@
+import java.util.HashMap;
+
+class Solution {
+    public int longestSubarrayDivK(int[] arr, int k) {
+        HashMap<Integer, Integer> firstIndex = new HashMap<>();
+        firstIndex.put(0, -1);
+
+        long prefixSum = 0;
+        int maxLen = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            prefixSum += arr[i];
+            int rem = (int) (((prefixSum % k) + k) % k);
+
+            if (firstIndex.containsKey(rem)) {
+                maxLen = Math.max(maxLen, i - firstIndex.get(rem));
+            } else {
+                firstIndex.put(rem, i);
+            }
+        }
+
+        return maxLen;
+    }
+}
