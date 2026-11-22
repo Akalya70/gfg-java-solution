@@ -1,0 +1,17 @@
+class Solution {
+    public String profession(int level, int pos) {
+        if (level == 1 || pos == 1) {
+            return "Engineer";
+        }
+
+        String parentProf = profession(level - 1, (pos + 1) / 2);
+
+        // Even pos = second child -> opposite of parent
+        if (pos % 2 == 0) {
+            return parentProf.equals("Engineer") ? "Doctor" : "Engineer";
+        }
+
+        // Odd pos = first child -> same as parent
+        return parentProf;
+    }
+}
